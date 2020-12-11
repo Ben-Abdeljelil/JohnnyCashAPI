@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "JohnnyCash API",
+        "contact": {
+            "name": "Aicha BEN ABDELJELIL",
+            "email": "benabdeljelilaicha@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/topSellingProducts": {
+            "get": {
+                "tags": [
+                    "Get top Selling products"
+                ],
+                "operationId": "App\\Http\\Controllers\\JohnnyCashController::getTopSellingProducts",
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "2019-09-01",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "2019-09-02",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns top Selling products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "skuId": {
+                                                "type": "integer"
+                                            },
+                                            "totalQuantity": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
