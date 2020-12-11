@@ -28,15 +28,15 @@ class JohnnyCashController extends BaseController
      *         name="startDate",
      *         in="query",
      *         description="2019-09-01",
-     *         required=false,
-     *         @OA\Schema(type="date")
+     *         required=true,
+     *         @OA\Schema(type="string")
      *     ),
      *     @OA\Parameter(
      *         name="endDate",
      *         in="query",
      *         description="2019-09-02",
-     *         required=false,
-     *         @OA\Schema(type="date")
+     *         required=true,
+     *         @OA\Schema(type="string")
      *     ),
      *     @OA\Response(
      *         response="200",
@@ -53,8 +53,8 @@ class JohnnyCashController extends BaseController
      */
     public function getTopSellingProducts(Request $request) {
         $this->validate($request, [
-            'startDate' => 'required|nullable|string',
-            'endDate' => 'required|nullable|string'
+            'startDate' => 'required|date|date_format:Y-m-d',
+            'endDate' => 'required|date|date_format:Y-m-d'
         ]);
         $topSellingProducts = JohnnyOrderLog::select(
             "johnnyorderlog.skuId",

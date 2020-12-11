@@ -20,18 +20,18 @@
                         "name": "startDate",
                         "in": "query",
                         "description": "2019-09-01",
-                        "required": false,
+                        "required": true,
                         "schema": {
-                            "type": "date"
+                            "type": "string"
                         }
                     },
                     {
                         "name": "endDate",
                         "in": "query",
                         "description": "2019-09-02",
-                        "required": false,
+                        "required": true,
                         "schema": {
-                            "type": "date"
+                            "type": "string"
                         }
                     }
                 ],
