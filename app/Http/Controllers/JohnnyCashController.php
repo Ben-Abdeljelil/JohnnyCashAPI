@@ -54,7 +54,7 @@ class JohnnyCashController extends BaseController
     public function getTopSellingProducts(Request $request) {
         $this->validate($request, [
             'startDate' => 'required|date|date_format:Y-m-d',
-            'endDate' => 'required|date|date_format:Y-m-d'
+            'endDate' => 'required|date|date_format:Y-m-d|after:startDate'
         ]);
         $topSellingProducts = JohnnyOrderLog::select(
             "johnnyorderlog.skuId",
